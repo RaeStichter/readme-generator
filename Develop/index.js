@@ -1,4 +1,5 @@
 // TODO: Include packages needed for this application
+const fs = require('fs');
 const inquirer = require('inquirer');
 const generateReadme = require('./src/readme-template');
 
@@ -43,8 +44,8 @@ const questions = readmeData => {
             }
         },
         {
-            type: 'installation',
-            name: 'title',
+            type: 'title',
+            name: 'installation',
             message: 'What steps are required to install your project?',
             validate: nameInput => {
                 if (nameInput) {
@@ -121,9 +122,38 @@ const questions = readmeData => {
     ]);
 };
 
+const writeFile = fileContent => {
+    return new Promise((resolve, reject) => {
+      fs.writeFile('./readme.md', fileContent, err => {
+        // if there's an error, reject the Promise and send the error to the Promise's `.catch()` method
+        if (err) {
+          reject(err);
+          // return out of the function here to make sure the Promise doesn't accidentally execute the resolve() function as well
+          return;
+        }
+  
+        // if everything went well, resolve the Promise and send the successful data to the `.then()` method
+        resolve({
+          ok: true,
+          message: 'File created!'
+        });
+      });
+    });
+  };
+
+
 questions(readmeData => {
     console.log(readmeData);
+})
+.then(readmeData => {
+    return generateReadme(readmeData);
+})
+.then(pageMarkdown => {
+    return writeFile(pageMarkdown);
 });
+
+
+
 
 // // TODO: Create a function to write README file
 // function writeToFile(fileName, data) {}
