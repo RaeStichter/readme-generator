@@ -19,22 +19,54 @@ const questions = readmeData => {
         {
             type: 'input',
             name: 'title',
-            message: 'What is the title of the project?'
+            message: 'What is the title of the project?',
+            validate: nameInput => {
+                if (nameInput) {
+                    return true;
+                } else {
+                    console.log('Please enter your Project name!');
+                    return false;
+                }
+            }
         },
         {
             type: 'input',
             name: 'description',
-            message: 'Provide a description of the project.'
+            message: 'Provide a description of the project.',
+            validate: nameInput => {
+                if (nameInput) {
+                    return true;
+                } else {
+                    console.log('Please provide a description of the project!');
+                    return false;
+                }
+            }
         },
         {
             type: 'installation',
             name: 'title',
-            message: 'What steps are required to install your project?'
+            message: 'What steps are required to install your project?',
+            validate: nameInput => {
+                if (nameInput) {
+                    return true;
+                } else {
+                    console.log('Please include installation steps, if there are none, please indicate!');
+                    return false;
+                }
+            }
         },
         {
             type: 'input',
             name: 'usage',
-            message: 'Provide instructions and examples for use.'
+            message: 'Provide instructions and examples for use.',
+            validate: nameInput => {
+                if (nameInput) {
+                    return true;
+                } else {
+                    console.log('Please provide instructions and examples!');
+                    return false;
+                }
+            }
         },
         {
             type: 'checkbox',
@@ -45,17 +77,46 @@ const questions = readmeData => {
         {
             type: 'input',
             name: 'contributing',
-            message: 'How can people contribute?'
+            message: 'How can people contribute?',
+            validate: nameInput => {
+                if (nameInput) {
+                    return true;
+                } else {
+                    console.log('Please provide how people can contribute!');
+                    return false;
+                }
+            } 
+        },
+        {
+            type: 'confirm',
+            name: 'confirmTests',
+            message: 'Would you like to include tests?',
+            default: true
         },
         {
             type: 'input',
             name: 'tests',
-            message: 'What are tests that the user can run?'
+            message: 'Provide test information:',
+            when: ({ confirmTests}) => {
+                if (confirmTests) {
+                    return true;
+                } else {
+                    return false;
+                }
+            }
         },
         {
             type: 'input',
             name: 'questions',
-            message: 'How can people contact you?'
+            message: 'Please enter you Github Username',
+            validate: nameInput => {
+                if (nameInput) {
+                    return true;
+                } else {
+                    console.log('Please enter you Github Username!');
+                    return false;
+                }
+            }
         }
     ]);
 };
