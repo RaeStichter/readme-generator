@@ -1,35 +1,35 @@
-const generateContent = valueHere => {
-    return `
-        ${valueHere}
-    `;
-};
+// const generateContent = valueHere => {
+//     return `
+//     ${valueHere}
+//     `;
+// };
 
 module.exports = templateData => {
     // destructure page data by section
     const {title, description, installation, usage, license, contributing, questions} = templateData;
 
     return `
-        ###${generateContent(title)}
+### ${templateData.title}
 
-        ##Description
-        ${generateContent(description)}
+## Description
+${templateData.description}
 
-        ##Table of Contents
+## Table of Contents
 
-        ##Installation
-        ${generateContent(installation)}
+## Installation
+${templateData.installation}
 
-        ##Usage
-        ${generateContent(usage)}
+## Usage
+${templateData.usage}
 
-        ##License
-        ${generateContent(license)}
+## License
+${templateData.license}
 
-        ##Contributing
-        ${generateContent(contributing)}
+## Contributing
+${templateData.contributing}
 
-        ##Questions
-        ${generateContent(questions)}
+## Questions
+${templateData.questions}
 
     `;
 };
