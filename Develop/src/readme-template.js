@@ -10,25 +10,34 @@ module.exports = templateData => {
 
 return `
 # ${templateData.title}
+_____________________________
 
-## Description
+### Description
+_____________________________
 ${templateData.description}
 
-## Table of Contents
+### Table of Contents
+_____________________________
 
-## Installation
+
+### Installation
+_____________________________
 ${templateData.installation}
 
-## Usage
+### Usage
+_____________________________
 ${templateData.usage}
 
-## License
+### License
+_____________________________
 ${templateData.license}
 
-## Contributing
+### Contributing
+_____________________________
 ${templateData.contributing}
 
-## Questions
+### Questions
+_____________________________
 ${templateData.questions}
 
 `;
