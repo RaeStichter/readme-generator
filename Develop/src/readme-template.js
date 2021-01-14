@@ -8,8 +8,8 @@ module.exports = templateData => {
     // destructure page data by section
     const {title, description, installation, usage, license, contributing, questions} = templateData;
 
-    return `
-### ${templateData.title}
+return `
+# ${templateData.title}
 
 ## Description
 ${templateData.description}
@@ -31,5 +31,5 @@ ${templateData.contributing}
 ## Questions
 ${templateData.questions}
 
-    `;
+`;
 };
