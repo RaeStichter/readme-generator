@@ -2,6 +2,7 @@
 const fs = require('fs');
 const inquirer = require('inquirer');
 const generateReadme = require('./src/readme-template');
+const generateMarkdown = require('./utils/generateMarkdown');
 
 // TODO: Create an array of questions for user input
 //const questions = [];
@@ -73,7 +74,7 @@ const questions = readmeData => {
             type: 'checkbox',
             name: 'license',
             message: 'What licenses does this project use? (Check all that apply)',
-            choices: ['MIT License','Apache License 2.0', 'Mozilla Public License', 'The Unlicense']
+            choices: ['MIT License','Apache License 2.0', 'Mozilla Public License', 'IBM Public License Version 1.0']
         },
         {
             type: 'input',
@@ -89,19 +90,14 @@ const questions = readmeData => {
             } 
         },
         {
-            type: 'confirm',
-            name: 'confirmTests',
-            message: 'Would you like to include tests?',
-            default: true
-        },
-        {
             type: 'input',
             name: 'tests',
             message: 'Provide test information:',
-            when: ({ confirmTests}) => {
-                if (confirmTests) {
+            validate: nameInput => {
+                if (nameInput) {
                     return true;
                 } else {
+                    console.log('Please provide test information!');
                     return false;
                 }
             }
@@ -146,7 +142,7 @@ questions(readmeData => {
     console.log(readmeData);
 })
 .then(readmeData => {
-    return generateReadme(readmeData);
+    return generateMarkdown(readmeData);
 })
 .then(pageMarkdown => {
     return writeFile(pageMarkdown);
