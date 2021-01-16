@@ -1,3 +1,4 @@
+// array for license information
 const availableLicenses = [
   {name: 'MIT License', badge: `[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)`, link: `[License: MIT](https://opensource.org/licenses/MIT)`},
   {name: 'Apache License 2.0', badge: `[![License](https://img.shields.io/badge/License-Apache%202.0-blue.svg)](https://opensource.org/licenses/Apache-2.0)`, link: `[License: Apache](https://opensource.org/licenses/Apache-2.0)`},
@@ -6,40 +7,33 @@ const availableLicenses = [
 ];
 var indexValue = 0;
 
-// TODO: Create a function that returns a license badge based on which license is passed in
+// Function that returns a license badge based on which license is passed in
 // If there is no license, return an empty string
 const renderLicenseBadge = license => {
   if (!license) {
     return ``;
   }
-
+  // find index of license and set to indexValue
   for (var i = 0; i < availableLicenses.length; i++) {
     if (availableLicenses[i].name == license)
       indexValue =  i;
   };
-
-  // set the licsense index to a variable
 
 return `
 ${availableLicenses[indexValue].badge}
 `;
 };
 
-// TODO: Create a function that returns the license link
+// Function that returns the license link
 // If there is no license, return an empty string
-//function renderLicenseLink(license) {}
-
 const renderLicenseLink = license => {
-
 return `
 ${availableLicenses[indexValue].link}
 `;
 };
 
-// TODO: Create a function that returns the license section of README
+// Function that returns the license section of README
 // If there is no license, return an empty string
-//function renderLicenseSection(license) {}
-
 const renderLicenseSection = license => {
 return `
 ${renderLicenseBadge(license)}
@@ -48,13 +42,29 @@ ${renderLicenseLink(license)}
 `;
 };
 
-// TODO: Create a function to generate markdown for README
+// Function that sets up link for github
+const renderQuestionsGithub = github => {
+  const githubLink = ('http://github.com/' + github);
 
+  return `
+  Please click on the link provided to access the author's [Github](${githubLink}).
+  `;
+};
+
+// 
+const renderQuestionsEmail = email => {
+  
+  return `
+  Further questions can be directed the the author's email address: ${email}.
+  `;
+};
+
+// ------------------------------------------------------------------------------------------
+// Function to generate markdown for README
 module.exports = templateData => {
   // destructure page data by section
-  const {title, description, installation, usage, license, contributing, questions} = templateData;
+  const {title, description, installation, usage, license, contributing, github, email} = templateData;
 
-//function generateMarkdown(data) {
   return `
 # ${templateData.title}
 ${renderLicenseBadge(license)}
@@ -78,6 +88,7 @@ ${templateData.usage}
 
 ### License
 _____________________________
+${templateData.license}
 ${renderLicenseSection(license)}
 
 
@@ -87,9 +98,8 @@ ${templateData.contributing}
 
 ### Questions
 _____________________________
-${templateData.questions}
+${renderQuestionsGithub(github)}
+${renderQuestionsEmail(email)}
 
 `;
 }
-
-//module.exports = generateMarkdown;

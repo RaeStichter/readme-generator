@@ -104,13 +104,26 @@ const questions = readmeData => {
         },
         {
             type: 'input',
-            name: 'questions',
-            message: 'Please enter you Github Username',
+            name: 'github',
+            message: 'Please enter your Github Username',
             validate: nameInput => {
                 if (nameInput) {
                     return true;
                 } else {
-                    console.log('Please enter you Github Username!');
+                    console.log('Please enter your Github Username!');
+                    return false;
+                }
+            }
+        },
+        {
+            type: 'input',
+            name: 'email',
+            message: 'Please enter your email address',
+            validate: nameInput => {
+                if (nameInput) {
+                    return true;
+                } else {
+                    console.log('Please enter your Github Username!');
                     return false;
                 }
             }
