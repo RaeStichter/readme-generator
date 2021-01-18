@@ -93,7 +93,7 @@ ${templateData.installation}
 
 ### Usage
 _____________________________
-*Instructions and example for use: *
+*Instructions and example for use:*
 
 ![Walk through video.](./assets/video/demo_video.gif)
 
