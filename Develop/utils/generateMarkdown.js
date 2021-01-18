@@ -85,10 +85,13 @@ _____________________________
 
 ### Installation
 _____________________________
+*Steps required to intall and run this program:*
 ${templateData.installation}
 
 ### Usage
 _____________________________
+*Instructions and example for use: *
+
 ${templateData.usage}
 
 ### License
@@ -100,6 +103,10 @@ ${renderLicenseSection(license)}
 ### Contributing
 _____________________________
 ${templateData.contributing}
+
+### Tests
+_____________________________
+${templateData.tests}
 
 ### Questions
 _____________________________
