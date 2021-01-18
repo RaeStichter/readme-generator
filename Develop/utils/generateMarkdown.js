@@ -76,7 +76,12 @@ ${templateData.description}
 
 ### Table of Contents
 _____________________________
-
+* [Installation](#installation)
+* [Usage](#usage)
+* [License](#license)
+* [Contributing](#contributing)
+* [Tests](#tests)
+* [Questions](#questions)
 
 ### Installation
 _____________________________
