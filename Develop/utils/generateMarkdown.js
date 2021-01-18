@@ -91,7 +91,7 @@ ${templateData.installation}
 ### Usage
 _____________________________
 *Instructions and example for use: *
-
+![Walk through video.](./assets/video/demo_video.gif)
 ${templateData.usage}
 
 ### License
