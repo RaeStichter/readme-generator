@@ -8,7 +8,7 @@
 _____________________________
 A professional looking Readme file gives the user who visits your repository a brief idea of what the project is about, how to use the project outcome, how to report issues, how to contribute and also screenshots or videos assisting the user with implementation of your project.
 This is a command line application that runs with Node.js which generates a README.md files based on the user’s input for their project.  
-For more examples on what makes a good readme, please check out [readme-guide.md](https://github.com/coding-boot-camp/potential-enigma/blob/master/readme-guide.md).
+For more examples on what makes a good readme, please check out [readme-guide.md](https://github.com/RaeStichter/readme-generator/blob/main/readme-guide.md).
 
 
 ### Table of Contents
