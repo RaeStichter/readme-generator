@@ -68,11 +68,11 @@ module.exports = templateData => {
   return `
 # ${templateData.title}
 ${renderLicenseBadge(license)}
-_____________________________
 
 ### Description
 _____________________________
 ${templateData.description}
+
 
 ### Table of Contents
 _____________________________
@@ -83,16 +83,22 @@ _____________________________
 * [Tests](#tests)
 * [Questions](#questions)
 
+
 ### Installation
 _____________________________
 *Steps required to intall and run this program:*
+
 ${templateData.installation}
+
 
 ### Usage
 _____________________________
 *Instructions and example for use: *
+
 ![Walk through video.](./assets/video/demo_video.gif)
+
 ${templateData.usage}
+
 
 ### License
 _____________________________
@@ -104,14 +110,15 @@ ${renderLicenseSection(license)}
 _____________________________
 ${templateData.contributing}
 
+
 ### Tests
 _____________________________
 ${templateData.tests}
+
 
 ### Questions
 _____________________________
 ${renderQuestionsGithub(github)}
 ${renderQuestionsEmail(email)}
-
 `;
 }
